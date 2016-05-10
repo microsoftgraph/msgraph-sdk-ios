@@ -31,7 +31,7 @@
     [self.logger setLogLevel:level];
 }
 
-+ (MSGraphClient*)client {
++ (MSGraphClient*)defaultClient {
     return [MSGraphClient clientWithConfig:[MSGraphClientConfiguration defaultConfiguration]];
 }
 
