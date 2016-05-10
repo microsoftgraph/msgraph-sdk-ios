@@ -46,6 +46,6 @@
  Creates a client using settings from [MSGraphClientConfiguration defaultConfiguration]. Auth provider must be set beforehand.
  @warning With this method, the onus is on the developer to ensure the MSAuthenticationProvider is in a state ready to create auth headers before making client requests.
  */
-+ (MSGraphClient*)client;
++ (MSGraphClient*)defaultClient;
 
 @end
