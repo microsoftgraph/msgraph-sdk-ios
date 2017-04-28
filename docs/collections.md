@@ -25,13 +25,13 @@ The completion handler also supplies a request object called `nextRequest` of th
 
 ## Adding to a collection
 
-Some collections, like the children of a folder, can be changed. To add a folder to the children of an item you can call the `addItem` method:
+Some collections, like the children of a folder, can be changed. To add a folder to the children of an item you can call the `addDriveItem` method:
 
 ```objc
 MSGraphDriveItem *newFolder = [[MSGraphDriveItem alloc] init];
 newFolder.name = <new_folder_name>;
 newFolder.folder = [[MSGraphFolder alloc] init];
-[[[[[[graphClient me] drive] items:<item_id>] children] request] addItem:newFolder withCompletion:^(MSGraphDriveItem *item, NSError *error){
+[[[[[[graphClient me] drive] items:<item_id>] children] request] addDriveItem:newFolder withCompletion:^(MSGraphDriveItem *item, NSError *error){
     //returns the new item or an error if there was one.
 }];
 ```
