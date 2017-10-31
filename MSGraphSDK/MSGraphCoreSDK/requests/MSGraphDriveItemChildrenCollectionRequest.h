@@ -2,7 +2,7 @@
 
 
 
-@class MSGraphDriveItemRequest, MSURLSessionDataTask;
+@class MSGraphDriveItemChildrenCollectionRequest, MSURLSessionDataTask;
 
 #import "MSGraphModels.h"
 #import "MSCollectionRequest.h"
