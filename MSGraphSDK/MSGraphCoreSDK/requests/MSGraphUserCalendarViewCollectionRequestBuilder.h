@@ -6,10 +6,9 @@
 #import "MSGraphModels.h"
 #import "MSCollectionRequestBuilder.h"
 
-
-
-
 @interface MSGraphUserCalendarViewCollectionRequestBuilder : MSCollectionRequestBuilder
+
+- (instancetype)initWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime URL:(NSURL *)url client:(ODataBaseClient*)client;
 
 - (MSGraphUserCalendarViewCollectionRequest *)request;
 

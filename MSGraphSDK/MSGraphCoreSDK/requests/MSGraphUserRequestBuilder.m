@@ -239,6 +239,15 @@
 
 }
 
+- (MSGraphUserCalendarViewCollectionRequestBuilder *)calendarViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime
+{
+    NSURL *actionURL = [self.requestURL URLByAppendingPathComponent:@"calendarView"];
+    return [[MSGraphUserCalendarViewCollectionRequestBuilder alloc] initWithStartDateTime:startDateTime
+                                                                              endDateTime:endDateTime
+                                                                                      URL:actionURL
+                                                                                   client:self.client];
+}
+
 
 - (MSGraphUserRequest *)request
 {
