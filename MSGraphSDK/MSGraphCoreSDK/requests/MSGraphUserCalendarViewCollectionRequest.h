@@ -13,6 +13,8 @@ typedef void (^MSGraphUserCalendarViewCollectionCompletionHandler)(MSCollection 
 
 @interface MSGraphUserCalendarViewCollectionRequest : MSCollectionRequest
 
+- (instancetype)initWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client;
+
 - (MSURLSessionDataTask *)getWithCompletion:(MSGraphUserCalendarViewCollectionCompletionHandler)completionHandler;
 
 - (MSURLSessionDataTask *)addEvent:(MSGraphEvent*)event withCompletion:(MSGraphEventCompletionHandler)completionHandler;

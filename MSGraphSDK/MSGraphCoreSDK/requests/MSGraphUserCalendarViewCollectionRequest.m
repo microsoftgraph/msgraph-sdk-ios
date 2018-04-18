@@ -5,18 +5,44 @@
 #import "MSGraphODataEntities.h"
 #import "MSCollection.h"
 #import "MSURLSessionDataTask.h"
+#import "MSFunctionParameters.h"
 
 @interface MSCollectionRequest()
+
+@property NSMutableArray *options;
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                       body:(NSData *)body
                                    headers:(NSDictionary *)headers;
 @end
 
+@interface MSGraphUserCalendarViewCollectionRequest()
+
+@property (nonatomic, getter=startDateTime) NSString * startDateTime;
+@property (nonatomic, getter=endDateTime) NSString * endDateTime;
+
+@end
+
 @implementation MSGraphUserCalendarViewCollectionRequest
+
+- (instancetype)initWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime URL:(NSURL *)url options:(NSArray *)options client:(ODataBaseClient*)client
+{
+    NSParameterAssert(startDateTime);
+    NSParameterAssert(endDateTime);
+    self = [super initWithURL:url options:options client:client];
+    if (self){
+        _startDateTime = startDateTime;
+        _endDateTime = endDateTime;
+    }
+    return self;
+}
 
 - (NSMutableURLRequest *)get
 {
+    [self.options addObject:[[MSQueryParameters alloc] initWithKey:@"StartDateTime"
+                                                                value:[MSObject getNSJsonSerializationCompatibleValue:_startDateTime]]];
+    [self.options addObject:[[MSQueryParameters alloc] initWithKey:@"EndDateTime"
+                                                                value:[MSObject getNSJsonSerializationCompatibleValue:_endDateTime]]];
     return [self requestWithMethod:@"GET"
                               body:nil
                            headers:nil];

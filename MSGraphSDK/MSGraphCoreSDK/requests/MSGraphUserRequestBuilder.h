@@ -55,8 +55,6 @@
 
 - (MSGraphCalendarGroupRequestBuilder *)calendarGroups:(NSString *)calendarGroup;
 
-- (MSGraphUserCalendarViewCollectionRequestBuilder *)calendarView;
-
 - (MSGraphEventRequestBuilder *)calendarView:(NSString *)event;
 
 - (MSGraphUserEventsCollectionRequestBuilder *)events;
@@ -93,8 +91,7 @@
 
 - (MSGraphUserReminderViewRequestBuilder *)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime ;
 
-
-
+- (MSGraphUserCalendarViewCollectionRequestBuilder *)calendarViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime;
 
 - (MSGraphUserRequest *) request;
 
